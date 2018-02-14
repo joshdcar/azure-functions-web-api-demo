@@ -1,0 +1,73 @@
+﻿{
+  "$schema": "http://json.schemastore.org/proxies",
+  "proxies": {
+    "Mock": {
+      "matchCondition": {
+        "route": "api/hello",
+        "methods": [
+          "GET"
+        ]
+      },
+      "responseOverrides": {
+        "response.statusCode": "200",
+        "response.statusReason": "OK",
+        "response.body": "{ \"name\": \"hello world\" }",
+        "response.headers.Content-Type": "Application/JSON"
+      }
+    },
+    "GetLaunchSchedules": {
+      "matchCondition": {
+        "route": "/api/launch/schedules",
+        "methods": [
+          "GET"
+        ]
+      },
+      "backendUri": "%InternalApiUrl%/api/v1/launch/schedules"
+    },
+    "GetLaunchSchedule": {
+      "matchCondition": {
+        "route": "/api/launch/schedules/{id}",
+        "methods": [
+          "GET"
+        ]
+      },
+      "backendUri": "%InternalApiUrl%/api/v2/launch/schedules/{id}"
+    },
+    "CreateLaunchSchedule": {
+      "matchCondition": {
+        "route": "/api/launch/schedules",
+        "methods": [
+          "POST"
+        ]
+      },
+      "backendUri": "%InternalApiUrl%/api/v1/launch/schedules"
+    },
+    "UpdateLaunchSchedule": {
+      "matchCondition": {
+        "route": "/api/launch/schedules",
+        "methods": [
+          "PUT"
+        ]
+      },
+      "backendUri": "%InternalApiUrl%/api/v1/launch/schedules"
+    },
+    "DeleteLaunchSchedule": {
+      "matchCondition": {
+        "route": "/api/launch/schedules",
+        "methods": [
+          "DELETE"
+        ]
+      },
+      "backendUri": "%InternalApiUrl%/api/v1/launch/schedules"
+    },
+    "Rockets": {
+      "matchCondition": {
+        "route": "/api/launch/rockets",
+        "methods": [
+          "GET"
+        ]
+      },
+      "backendUri": "https://launchlibrary.net/1.3/rocket"
+    }
+  }
+}
