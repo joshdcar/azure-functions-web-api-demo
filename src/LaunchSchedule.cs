@@ -63,7 +63,11 @@ namespace LaunchSchedule.Functions
             log.Info("C# HTTP trigger function processed a request.");
 
             // *******************************************************
-            // Validate Our Model (Azure Functions Does Not Validate)
+            // We can validate after the fact if we load the JSON
+            // contents from the body. This allows us to get the validation
+            // results and give back a better exception then just 
+            // 500 Bad Request. Replace the schedule object below
+            // with a version pulled from the body (JSONConvert)
             // *******************************************************
 
             ValidationContext validationContext = new ValidationContext(schedule);
